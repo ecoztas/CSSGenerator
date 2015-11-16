@@ -1,0 +1,1974 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>CSS Generator by OZTAS</title>
+<meta charset="utf-8">
+
+<style type="text/css">
+div.main{
+		margin-top: 6px;
+		margin-left: 300px;
+		margin-right: 300px;
+		padding-left: 20px;
+		padding-top: 30px;
+		/*border-radius: 10px 10px 10px 10px;*/
+		background-color: #F0F0F0;
+}
+summary{
+		font-size: 14px;
+		background-color: CCCC66;
+		color: orange;
+		height: 20px;
+		display: block;
+		cursor: pointer;
+}
+summary::-webkit-details-marker {
+		display: none
+}
+summary:after {
+		border-radius: 1px;
+		width: 20px;
+		content: "+";
+		float: left;
+		font-size: 14px;
+		text-align: left;
+}
+details[open] summary:after {
+		content: "-";
+}
+.txt {
+		width: 100px;
+}
+header{
+		margin-left: 300px;
+		margin-right: 300px;
+		padding-left: 20px;
+		padding-top: 6px;
+		border-radius: 10px 10px 0px 0px;
+		background-color: #F0F0F0;
+		padding-bottom: 10px;
+}
+footer{
+		margin-left: 300px;
+		margin-right: 300px;
+		padding-left: 20px;
+		padding-top: 10px;
+		border-radius: 0px 0px 10px 10px;
+		background-color: #F0F0F0;
+		margin-top: 6px;
+		font-family: verdana;
+		font-size: 10px;
+		text-align: center;
+}
+</style>
+<!-- ********************************************************js for text************************************************************************ -->
+<script type="text/javascript">
+
+	// variables
+	var fontSizeUp;
+	var textColor = "#000000";
+	var textBackgroundColor = "#FFFFFF";
+	var textAlignSituation = "left";
+	var textTransformSituation = "none";
+	var textBorderStyleSituation = "ridge";
+	var textW;
+	var textH;
+	var borderRadiusX1;
+	var borderRadiusY1;
+	var borderRadiusX2;
+	var borderRadiusY2;
+	var textBorderSize;
+	var textBorderCol = "#000000";
+	var textPaddingT;
+	var textPaddingL;
+	var textPaddingR;
+	var textPaddingB;
+	var textMarginT;
+	var textMarginL;
+	var textMarginR;
+	var textMarginB;
+	var textBoxShadowT;
+	var textBoxShadowL;
+	var textBoxShadowR;
+	var textBoxShadowB;
+	var textBoxShadowColor;
+
+	// initFunction for textArea
+	function initFunction(){
+
+		// button code for code area;
+		initBtnFunction();
+
+		// label code for code area;
+		initLabelFunction();
+
+		// text: font-size
+		fontSizeUp = document.getElementById("fontSizeUp").value;
+		// text: color
+		textColor = document.getElementById("textColor").value;
+		// text: background-color
+		textBackgroundColor = document.getElementById("textBackgroundColor").value;
+		// text: width
+		textW = document.getElementById("textWidth").value;
+		// text: height
+		textH = document.getElementById("textHeight").value;
+		// text: border-radius
+		borderRadiusX1 = document.getElementById("borderRadiusX1").value;
+		borderRadiusY1 = document.getElementById("borderRadiusY1").value;
+		borderRadiusX2 = document.getElementById("borderRadiusX2").value;
+		borderRadiusY2 = document.getElementById("borderRadiusY2").value;
+		// text: border-size
+		textBorderSize = document.getElementById("textBorderSize").value;
+		// text: border-color
+		textBorderCol = document.getElementById("textBorderCol").value;
+		// text: padding-top
+		textPaddingT = document.getElementById("textPaddingT").value;
+		// text: padding-left
+		textPaddingL = document.getElementById("textPaddingL").value;
+		// text: padding-right
+		textPaddingR = document.getElementById("textPaddingR").value;
+		// text: padding-bottom
+		textPaddingB = document.getElementById("textPaddingB").value;
+		// text: margin-top
+		textMarginT = document.getElementById("textMarginT").value;
+		// text: margin-left
+		textMarginL = document.getElementById("textMarginL").value;
+		// text: margin-right
+		textMarginR = document.getElementById("textMarginR").value;
+		// text: margin-bottom
+		textMarginB = document.getElementById("textMarginB").value;
+		// text: box-shadow
+		textBoxShadowT = document.getElementById("textBoxShadowT").value;
+		textBoxShadowL = document.getElementById("textBoxShadowL").value;
+		textBoxShadowR = document.getElementById("textBoxShadowR").value;
+		textBoxShadowB = document.getElementById("textBoxShadowB").value;
+		// get color
+		textBoxShadowColor = document.getElementById("textBoxShadowColor").value;
+
+		// initParams are the properties of page for codeArea
+		var initParams1 = "{\n" + "font-size: " + fontSizeUp + "px;\n" + "color: " + textColor + ";\n";
+		var initParams2 = "background-color: " + textBackgroundColor + ";\n" + "text-align: " + textAlignSituation + ";\n" + "text-transform: " + textTransformSituation + ";\n";
+		var initParams3 = "height: " + textH + "px;\n" + "border-radius: " + borderRadiusX1 + "px " + borderRadiusY1 + "px " + borderRadiusX2 + "px " + borderRadiusY2 + "px;\n";
+		var initParams4 = "border: " + textBorderSize + "px;\n" + "border-color: " + textBorderCol + ";\n";
+		var initParams5 = "border-style: " + textBorderStyleSituation + ";\n" + "width: " + textW + "px;\n";
+		var initParams6 = "padding-top: " + textPaddingT + "px;\n" + "padding-left: " + textPaddingL + "px;\n" + "padding-right: " + textPaddingR + "px;\n" + "padding-bottom: " + textPaddingB + "px;\n";
+		var initParams7 = "margin-top: " + textMarginT + "px;\n" + "margin-left: " + textMarginL + "px;\n" + "margin-right: " + textMarginR + "px;\n" + "margin-top: " + textMarginT + "px;\n";
+		var initParams8 = "box-shadow: " + textBoxShadowT + "px " + textBoxShadowL + "px " + textBoxShadowR + "px " + textBoxShadowB + "px " + textBoxShadowColor + ";\n}";
+
+		// write initParams to codeArea
+		var initParams = initParams1 + initParams2 + initParams3 + initParams4 + initParams5 + initParams6 + initParams7 + initParams8;
+		document.getElementById("codeArea").value = initParams;
+
+	}
+	// RGB color chooser
+	var colorR;
+	var colorG;
+	var colorB;
+	function colorLabel(){
+			colorR = document.getElementById("labelRColor").value;
+			colorG = document.getElementById("labelGColor").value;
+			colorB = document.getElementById("labelBColor").value;
+
+			document.getElementById("colorTD").style.backgroundColor = "rgb(" + parseInt(colorR) + ", " + parseInt(colorB) + ", " + parseInt(colorG) + ")";
+
+			document.getElementById("colorR").innerHTML = colorR;
+			document.getElementById("colorG").innerHTML = colorG;
+			document.getElementById("colorB").innerHTML = colorB;
+	}
+
+	// text font-size
+	function textFontSize(){
+			fontSizeUp = document.getElementById("fontSizeUp").value;
+			document.getElementById("text").style.fontSize = parseInt(fontSizeUp) + "px";
+
+			initFunction();
+	}
+
+	// text color chooser
+	function colorText(){
+			textColor = document.getElementById("textColor").value;
+			document.getElementById("text").style.color = textColor;
+
+			initFunction();
+	}
+
+	// text background-color chooser
+	function colorTextBackGround(){
+			textBackgroundColor = document.getElementById("textBackgroundColor").value;
+			document.getElementById("text").style.backgroundColor = textBackgroundColor;
+
+			initFunction();
+	}
+
+	// text-align - > left
+	function textAlignLeft(){
+			textAlignSituation = "left";
+			document.getElementById("text").style.textAlign = "left";
+
+			initFunction();
+	}
+
+	// text-align - > center
+	function textAlignCenter(){
+			textAlignSituation = "center";
+			document.getElementById("text").style.textAlign = "center";
+
+			initFunction();
+	}
+
+	// text-align - > right
+	function textAlignRight(){
+			textAlignSituation = "right";
+			document.getElementById("text").style.textAlign = "right";
+
+			initFunction();
+	}
+
+	// text-transform -> none
+	function textTransformNone(){
+			textTransformSituation = "none";
+			document.getElementById("text").style.textTransform = "none";
+
+			initFunction();
+	}
+
+	// text-transform -> capitalize
+	function textTransformCapitalize(){
+			textTransformSituation = "capitalize";
+			document.getElementById("text").style.textTransform = "capitalize";
+
+			initFunction();
+	}
+
+	// text-transform -> uppercase
+	function textTransformUppercase(){
+			textTransformSituation = "uppercase";
+			document.getElementById("text").style.textTransform = "uppercase";
+
+			initFunction();
+	}
+
+	// text-transform -> lowercase
+	function textTransformLowercase(){
+			textTransformSituation = "lowercase";
+			document.getElementById("text").style.textTransform = "lowercase";
+
+			initFunction();
+	}
+
+	//text: border-style -> default
+	function textBorderStyleDefault(){
+			textBorderStyleSituation = "default";
+
+			var textBorderS = document.getElementById("textBorderSize").value;
+			document.getElementById("text").style.border = parseInt(textBorderS) + "px";
+
+			var textBorderC = document.getElementById("textBorderCol").value;
+	  		document.getElementById("text").style.borderColor = textBorderC;
+
+			document.getElementById("text").style.borderStyle = "text";
+
+			initFunction();
+	}
+
+	// text: border-style -> none
+	function textBorderStyleNone(){
+			textBorderStyleSituation = "none";
+
+			var textBorderS = document.getElementById("textBorderSize").value;
+			document.getElementById("text").style.border = parseInt(textBorderS) + "px";
+
+			var textBorderC = document.getElementById("textBorderCol").value;
+	  		document.getElementById("text").style.borderColor = textBorderC;
+
+			document.getElementById("text").style.borderStyle = "none";
+
+			initFunction();
+	}
+
+	// text: border-style -> hidden
+	function textBorderStyleHidden(){
+			textBorderStyleSituation = "hidden";
+			var textBorderS = document.getElementById("textBorderSize").value;
+			document.getElementById("text").style.border = parseInt(textBorderS) + "px";
+
+			var textBorderC = document.getElementById("textBorderCol").value;
+	  		document.getElementById("text").style.borderColor = textBorderC;
+
+			document.getElementById("text").style.borderStyle = "hidden";
+
+			initFunction();
+	}
+
+	// text: border-style -> dotted
+	function textBorderStyleDotted(){
+			textBorderStyleSituation = "dotted";
+			var textBorderS = document.getElementById("textBorderSize").value;
+			document.getElementById("text").style.border = parseInt(textBorderS) + "px";
+
+			var textBorderC = document.getElementById("textBorderCol").value;
+	  		document.getElementById("text").style.borderColor = textBorderC;
+
+			document.getElementById("text").style.borderStyle = "dotted";
+
+			initFunction();
+	}
+
+	// text: border-style -> dashed
+	function textBorderStyleDashed(){
+			textBorderStyleSituation = "dashed";
+			var textBorderS = document.getElementById("textBorderSize").value;
+			document.getElementById("text").style.border = parseInt(textBorderS) + "px";
+
+			var textBorderC = document.getElementById("textBorderCol").value;
+	  		document.getElementById("text").style.borderColor = textBorderC;
+
+			document.getElementById("text").style.borderStyle = "dashed";
+
+			initFunction();
+	}
+
+	// text: border-style -> solid
+	function textBorderStyleSolid(){
+			textBorderStyleSituation = "solid";
+			var textBorderS = document.getElementById("textBorderSize").value;
+			document.getElementById("text").style.border = parseInt(textBorderS) + "px";
+
+			var textBorderC = document.getElementById("textBorderCol").value;
+	  		document.getElementById("text").style.borderColor = textBorderC;
+
+			document.getElementById("text").style.borderStyle = "solid";
+
+			initFunction();
+	}
+
+	// text: border-style -> double
+	function textBorderStyleDouble(){
+			textBorderStyleSituation = "double";
+			var textBorderS = document.getElementById("textBorderSize").value;
+			document.getElementById("text").style.border = parseInt(textBorderS) + "px";
+
+			var textBorderC = document.getElementById("textBorderCol").value;
+	  		document.getElementById("text").style.borderColor = textBorderC;
+
+			document.getElementById("text").style.borderStyle = "double";
+
+			initFunction();
+	}
+
+	// text: border-style -> groove
+	function textBorderStyleGroove(){
+			textBorderStyleSituation = "groove";
+			var textBorderS = document.getElementById("textBorderSize").value;
+			document.getElementById("text").style.border = parseInt(textBorderS) + "px";
+
+			var textBorderC = document.getElementById("textBorderCol").value;
+	  		document.getElementById("text").style.borderColor = textBorderC;
+
+			document.getElementById("text").style.borderStyle = "groove";
+
+			initFunction();
+	}
+
+	// text: border-style -> ridge
+	function textBorderStyleRidge(){
+			textBorderStyleSituation = "ridge";
+			var textBorderS = document.getElementById("textBorderSize").value;
+			document.getElementById("text").style.border = parseInt(textBorderS) + "px";
+
+			var textBorderC = document.getElementById("textBorderCol").value;
+	  		document.getElementById("text").style.borderColor = textBorderC;
+
+			document.getElementById("text").style.borderStyle = "ridge";
+
+			initFunction();
+	}
+
+	// text: border-style -> inset
+	function textBorderStyleInset(){
+			textBorderStyleSituation = "inset";
+			var textBorderS = document.getElementById("textBorderSize").value;
+			document.getElementById("text").style.border = parseInt(textBorderS) + "px";
+
+			var textBorderC = document.getElementById("textBorderCol").value;
+	  		document.getElementById("text").style.borderColor = textBorderC;
+
+			document.getElementById("text").style.borderStyle = "inset";
+
+			initFunction();
+	}
+
+	// text: border-style -> outset
+	function textBorderStyleOutset(){
+			textBorderStyleSituation = "outset";
+			var textBorderS = document.getElementById("textBorderSize").value;
+			document.getElementById("text").style.border = parseInt(textBorderS) + "px";
+
+			var textBorderC = document.getElementById("textBorderCol").value;
+	  		document.getElementById("text").style.borderColor = textBorderC;
+
+			document.getElementById("text").style.borderStyle = "outset";
+
+			initFunction();
+	}
+
+	// text: width
+	function textWidth(){
+			textW = document.getElementById("textWidth").value;
+			document.getElementById("text").style.width = parseInt(textW) + "px";
+			document.getElementById("textW").innerHTML = textW + " px";
+
+			initFunction();
+	}
+
+	// text: height
+	function textHeight(){
+			textH = document.getElementById("textHeight").value;
+			document.getElementById("text").style.height = parseInt(textH) + "px";
+			document.getElementById("textH").innerHTML = textH + " px";
+
+			initFunction();
+	}
+
+	// border radius
+	function borderRadiusXY(){
+		borderRadiusX1 = document.getElementById("borderRadiusX1").value;
+		borderRadiusY1 = document.getElementById("borderRadiusY1").value;
+		borderRadiusX2 = document.getElementById("borderRadiusX2").value;
+		borderRadiusY2 = document.getElementById("borderRadiusY2").value;
+
+		document.getElementById("text").style.borderRadius = parseInt(borderRadiusX1) + "px" + " " + parseInt(borderRadiusY1) + "px" + " " + parseInt(borderRadiusX2) + "px" + " " + parseInt(borderRadiusY2) + "px";
+
+		initFunction();
+	}
+
+	// border size
+	function textBorder(){
+		textBorderSize = document.getElementById("textBorderSize").value;
+		document.getElementById("text").style.border = parseInt(textBorderSize) + "px";
+
+		initFunction();
+	}
+
+	// border color
+	function textBorderColor () {
+	  textBorderCol = document.getElementById("textBorderCol").value;
+	  document.getElementById("text").style.borderColor = textBorderCol;
+
+	  initFunction();
+	}
+
+	// padding-top
+	function textPaddingTop(){
+		textPaddingT = document.getElementById("textPaddingT").value;
+		document.getElementById("text").style.paddingTop = parseInt(textPaddingT) + "px";
+
+		initFunction();
+	}
+
+	// padding-left
+	function textPaddingLeft(){
+		textPaddingL = document.getElementById("textPaddingL").value;
+		document.getElementById("text").style.paddingLeft = parseInt(textPaddingL) + "px";
+
+		initFunction();
+	}
+
+	// padding-right
+	function textPaddingRight(){
+		textPaddingR = document.getElementById("textPaddingR").value;
+		document.getElementById("text").style.paddingRight = parseInt(textPaddingR) + "px";
+
+		initFunction();
+	}
+
+	// padding-bottom
+	function textPaddingBottom(){
+		textPaddingB = document.getElementById("textPaddingB").value;
+		document.getElementById("text").style.paddingBottom = parseInt(textPaddingB) + "px";
+
+		initFunction();
+	}
+
+	// margin-top
+	function textMarginTop(){
+		textMarginT = document.getElementById("textMarginT").value;
+		document.getElementById("text").style.marginTop = parseInt(textMarginT) + "px";
+
+		initFunction();
+	}
+
+	// margin-left
+	function textMarginLeft(){
+		textMarginL = document.getElementById("textMarginL").value;
+		document.getElementById("text").style.marginLeft = parseInt(textMarginL) + "px";
+
+		initFunction();
+	}
+
+	// margin - right
+	function textMarginRight(){
+		textMarginR = document.getElementById("textMarginR").value;
+		document.getElementById("text").style.marginRight = parseInt(textMarginR) + "px";
+
+		initFunction();
+	}
+
+	// margin - bottom
+	function textMarginBottom(){
+		textMarginB = document.getElementById("textMarginB").value;
+		document.getElementById("text").style.marginBottom = parseInt(textMarginB) + "px";
+
+		initFunction();
+	}
+
+	// box-shadow
+	function textBoxShadow(){
+		textBoxShadowT = document.getElementById("textBoxShadowT").value;
+		textBoxShadowL = document.getElementById("textBoxShadowL").value;
+		textBoxShadowR = document.getElementById("textBoxShadowR").value;
+		textBoxShadowB = document.getElementById("textBoxShadowB").value;
+		// get color
+		textBoxShadowColor = document.getElementById("textBoxShadowColor").value;
+		document.getElementById("text").style.boxShadow = parseInt(textBoxShadowT) + "px" + " " + parseInt(textBoxShadowL) + "px" + " " + parseInt(textBoxShadowR) + "px" + " " + parseInt(textBoxShadowB) + "px" + " " + textBoxShadowColor;
+
+		initFunction();
+	}
+
+</script>
+<!-- ********************************************************js for button********************************************************************** -->
+<script type="text/javascript">
+
+	var btnFontSizeUp;
+	var btnColor;
+	var btnBackgroundColor;
+	var btnWidth;
+	var btnHeight;
+	var btnAlignSituation = "center";
+	var btnBorderSize = 1;
+	var btnBorderCol;
+	var btnBorderStyleSituation = "ridge";
+	var btnCursorSituation = "auto";
+	var btnPaddingT;
+	var btnPaddingL;
+	var btnPaddingR;
+	var btnPaddingB;
+	var btnMarginT;
+	var btnMarginL;
+	var btnMarginR;
+	var btnMarginB;
+	var btnBorderRadiusX1;
+	var btnBorderRadiusY1;
+	var btnBorderRadiusX2;
+	var btnBorderRadiusY2;
+	var btnBoxShadowT;
+	var btnBoxShadowL;
+	var btnBoxShadowR;
+	var btnBoxShadowB;
+	var btnFontStyleSituation = "normal";
+	var btnFontWeightSituation = "normal";
+
+	// init code for btnCodeArea
+	function initBtnFunction(){
+
+		btnFontSizeUp = document.getElementById("btnFontSizeUp").value;
+		btnColor = document.getElementById("btnColor").value;
+		btnBackgroundColor = document.getElementById("btnBackgroundColor").value;
+		btnWidth = document.getElementById("btnWidth").value;
+		btnHeight = document.getElementById("btnHeight").value;
+		// btnAlignSituation
+		btnBorderSize = document.getElementById("btnBorderSize").value;
+		btnBorderCol = document.getElementById("btnBorderCol").value;
+		// btnBorderStyleSituation
+		// btnCursorSituation
+		btnPaddingT = document.getElementById("btnPaddingT").value;
+		btnPaddingL = document.getElementById("btnPaddingL").value;
+		btnPaddingR = document.getElementById("btnPaddingR").value;
+		btnPaddingB = document.getElementById("btnPaddingB").value;
+		btnMarginT = document.getElementById("btnMarginT").value;
+		btnMarginL = document.getElementById("btnMarginL").value;
+		btnMarginR = document.getElementById("btnMarginR").value;
+		btnMarginB = document.getElementById("btnMarginB").value;
+		btnBorderRadiusX1 = document.getElementById("btnBorderRadiusX1").value;
+		btnBorderRadiusY1 = document.getElementById("btnBorderRadiusY1").value;
+		btnBorderRadiusX2 = document.getElementById("btnBorderRadiusX2").value;
+		btnBorderRadiusY2 = document.getElementById("btnBorderRadiusY2").value;
+		btnBoxShadowT = document.getElementById("btnBoxShadowT").value;
+		btnBoxShadowL = document.getElementById("btnBoxShadowL").value;
+		btnBoxShadowR = document.getElementById("btnBoxShadowR").value;
+		btnBoxShadowB = document.getElementById("btnBoxShadowB").value;
+		btnBoxShadowColor = document.getElementById("btnBoxShadowColor").value;
+		// btnFontStyleSituation
+		// btnFontWeightSituation
+
+		var brc1 = "{\n";
+		var brc2 = "\n}";
+		var btnInitParams1 = "font-size: " + btnFontSizeUp + "px;\n" + "font-style: " + btnFontStyleSituation + ";\n" + "font-weight: " + btnFontWeightSituation + ";\n";
+		var btnInitParams2 = "color: " + btnColor + ";\n" + "background-color: " + btnBackgroundColor + ";\n" + "text-align: " + btnAlignSituation + ";\n";
+		var btnInitParams3 = "border: " + btnBorderSize + "px;\n" + "border-color: " + btnBorderCol + ";\n" + "border-style: " + btnBorderStyleSituation + ";\n";
+		var btnInitParams4 = "cursor: " + btnCursorSituation + ";\n" + "width: " + btnWidth + "px;\n" + "height: " + btnHeight + "px;\n";
+		var btnInitParams5 = "padding-top: " + btnPaddingT + "px;\n" + "padding-left: " + btnPaddingL + "px;\n" + "padding-right: " + btnPaddingR + "px;\n" + "padding-bottom:" + btnPaddingB + "px;\n";
+		var btnInitParams6 = "margin-top: " + btnMarginT + "px;\n" + "margin-left: " + btnMarginT + "px;\n" + "margin-right: " + btnMarginR + "px;\n" + "margin-bottom: " + btnMarginB + "px;\n";
+		var btnInitParams7 = "border-radius: " + btnBorderRadiusX1 + "px " + btnBorderRadiusY1 + "px " + btnBorderRadiusX2 + "px " + btnBorderRadiusY2 + "px;\n";
+		var btnInitParams8 = "box-shadow: " + btnBoxShadowT + "px " + btnBoxShadowL + "px " + btnBoxShadowR + "px " + btnBoxShadowB + "px " + btnBoxShadowColor + ";";
+
+		var btnInitParams = brc1 + btnInitParams1 + btnInitParams2 + btnInitParams3 + btnInitParams4 + btnInitParams5 + btnInitParams6 + btnInitParams7 + btnInitParams8 + brc2;
+
+		document.getElementById("btnCodeArea").value = btnInitParams;
+
+	}
+
+	// give a name to btn
+	function giveBtnName(){
+		var btnName = document.getElementById("btnName").value;
+		document.getElementById("btn").value = btnName;
+	}
+
+	// btn font size
+	function btnFontSize(){
+		btnFontSizeUp = document.getElementById("btnFontSizeUp").value;
+		document.getElementById("btn").style.fontSize = parseInt(btnFontSizeUp) + "px";
+
+		initBtnFunction();
+	}
+
+	// btn color
+	function colorBtn(){
+		btnColor = document.getElementById("btnColor").value;
+		document.getElementById("btn").style.color = btnColor;
+
+		initBtnFunction();
+	}
+
+	// btn background-color
+	function colorBtnBackGround(){
+		btnBackgroundColor = document.getElementById("btnBackgroundColor").value;
+		document.getElementById("btn").style.backgroundColor = btnBackgroundColor;
+
+		initBtnFunction();
+	}
+
+	// btn width
+	function giveBtnWidth(){
+		btnWidth = document.getElementById("btnWidth").value;
+		document.getElementById("btn").style.width = parseInt(btnWidth) + "px";
+		document.getElementById("btnW").innerHTML = btnWidth + "px";
+
+		initBtnFunction();
+	}
+
+	// btn height
+	function giveBtnHeight(){
+		btnHeight = document.getElementById("btnHeight").value;
+		document.getElementById("btn").style.height = parseInt(btnHeight) + "px";
+		document.getElementById("btnH").innerHTML = btnHeight + "px";
+
+		initBtnFunction();
+	}
+
+	// btn text-align:left
+	function btnAlignLeft(){
+		btnAlignSituation = "left";
+		document.getElementById("btn").style.textAlign = "left";
+
+		initBtnFunction();
+	}
+
+	// btn text-align:center
+	function btnAlignCenter(){
+		btnAlignSituation = "center";
+		document.getElementById("btn").style.textAlign = "center";
+
+		initBtnFunction();
+	}
+
+	// btn text-align:right
+	function btnAlignRight(){
+		btnAlignSituation = "right";
+		document.getElementById("btn").style.textAlign = "right";
+
+		initBtnFunction();
+	}
+
+	// btn border-size
+	function btnBorder(){
+		btnBorderSize = document.getElementById("btnBorderSize").value;
+		document.getElementById("btn").style.border = parseInt(btnBorderSize) + "px";
+
+		initBtnFunction();
+	}
+
+	// btn border-color
+	function btnBorderColor(){
+		btnBorderCol = document.getElementById("btnBorderCol").value;
+		document.getElementById("btn").style.borderColor = btnBorderCol;
+
+		initBtnFunction();
+	}
+
+	// btn border-style:none
+	function btnBorderStyleNone(){
+		btnBorderStyleSituation = "none";
+		document.getElementById("btn").style.borderStyle = "none";
+
+		initBtnFunction();
+	}
+
+	// btn border-style:hidden
+	function btnBorderStyleHidden(){
+		btnBorderStyleSituation = "hidden";
+		document.getElementById("btn").style.borderStyle = "hidden";
+
+		initBtnFunction();
+	}
+
+	// btn border-style:dotted
+	function btnBorderStyleDotted(){
+		btnBorderStyleSituation = "dotted";
+		document.getElementById("btn").style.borderStyle = "dotted";
+
+		initBtnFunction();
+	}
+
+	// btn border-style:dashed
+	function btnBorderStyleDashed(){
+		btnBorderStyleSituation = "dashed";
+		document.getElementById("btn").style.borderStyle = "dashed";
+
+		initBtnFunction();
+	}
+
+	// btn border-style:solid
+	function btnBorderStyleSolid(){
+		btnBorderStyleSituation = "solid";
+		document.getElementById("btn").style.borderStyle = "solid";
+
+		initBtnFunction();
+	}
+
+	// btn border-style:double
+	function btnBorderStyleDouble(){
+		btnBorderStyleSituation = "double";
+		document.getElementById("btn").style.borderStyle = "double";
+
+		initBtnFunction();
+	}
+
+	// btn border-style:groove
+	function btnBorderStyleGroove(){
+		btnBorderStyleSituation = "groove";
+		document.getElementById("btn").style.borderStyle = "groove";
+
+		initBtnFunction();
+	}
+
+	// btn border-style:ridge
+	function btnBorderStyleRidge(){
+		btnBorderStyleSituation = "ridge";
+		document.getElementById("btn").style.borderStyle = "ridge";
+
+		initBtnFunction();
+	}
+
+	// btn border-style:inset
+	function btnBorderStyleInset(){
+		btnBorderStyleSituation = "inset";
+		document.getElementById("btn").style.borderStyle = "inset";
+
+		initBtnFunction();
+	}
+
+	// btn border-style:outset
+	function btnBorderStyleOutset(){
+		btnBorderStyleSituation = "outset";
+		document.getElementById("btn").style.borderStyle = "outset";
+
+		initBtnFunction();
+	}
+
+	// btn cursor: auto
+	function btnCursorAuto(){
+		btnCursorSitutation = "auto";
+		document.getElementById("btn").style.cursor = "auto";
+
+		initBtnFunction();
+	}
+
+	// btn cursor: crosshair
+	function btnCursorCrosshair(){
+		btnCursorSitutation = "crosshair";
+		document.getElementById("btn").style.cursor = "crosshair";
+
+		initBtnFunction();
+	}
+
+	//btn cursor: default
+	function btnCursorDefault(){
+		btnCursorSituation = "default";
+		document.getElementById("btn").style.cursor = "default";
+
+		initBtnFunction();
+	}
+
+	// btn cursor: pointer
+	function btnCursorPointer(){
+		btnCursorSituation = "pointer";
+		document.getElementById("btn").style.cursor = "pointer";
+
+		initBtnFunction();
+	}
+
+	// btn cursor: move
+	function btnCursorMove(){
+		btnCursorSituation = "move";
+		document.getElementById("btn").style.cursor = "move";
+
+		initBtnFunction();
+	}
+
+	// btn cursor: e-resize
+	function btnCursorEResize(){
+		btnCursorSituation = "e-resize";
+		document.getElementById("btn").style.cursor = "e-resize";
+
+		initBtnFunction();
+	}
+
+	// btn cursor: ne-resize
+	function btnCursorNEResize(){
+		btnCursorSituation = "ne-resize";
+		document.getElementById("btn").style.cursor = "ne-resize";
+
+		initBtnFunction();
+	}
+
+	// btn cursor: nw-resize
+	function btnCursorNWResize(){
+		btnCursorSituation = "nw-resize";
+		document.getElementById("btn").style.cursor = "nw-resize";
+
+		initBtnFunction();
+	}
+
+	// btn cursor: n-resize
+	function btnCursorNResize(){
+		btnCursorSituation = "n-resize";
+		document.getElementById("btn").style.cursor = "n-resize";
+
+		initBtnFunction();
+	}
+
+	// btn cursor: se-resize
+	function btnCursorSEResize(){
+		btnCursorSituation = "se-resize";
+		document.getElementById("btn").style.cursor = "se-resize";
+
+		initBtnFunction();
+	}
+
+	// btn cursor: s-resize
+	function btnCursorSResize(){
+		btnCursorSituation = "s-resize";
+		document.getElementById("btn").style.cursor = "s-resize";
+
+		initBtnFunction();
+	}
+
+	// btn cursor: w-resize
+	function btnCursorWResize(){
+		btnCursorSituation = "w-resize";
+		document.getElementById("btn").style.cursor = "w-resize";
+
+		initBtnFunction();
+	}
+
+	// btn cursor: text
+	function btnCursorText(){
+		btnCursorSituation = "text";
+		document.getElementById("btn").style.cursor = "text";
+
+		initBtnFunction();
+	}
+
+	// btn cursor: wait
+	function btnCursorWait(){
+		btnCursorSituation = "wait";
+		document.getElementById("btn").style.cursor = "wait";
+
+		initBtnFunction();
+	}
+
+	// btn cursor: help
+	function btnCursorHelp(){
+		btnCursorSituation = "help";
+		document.getElementById("btn").style.cursor = "help";
+
+		initBtnFunction();
+	}
+
+	// btn padding: top
+	function btnPaddingTop(){
+		btnPaddingT = document.getElementById("btnPaddingT").value;
+		document.getElementById("btn").style.paddingTop = parseInt(btnPaddingT) + "px";
+
+		initBtnFunction();
+	}
+
+	// btn padding: left
+	function btnPaddingLeft(){
+		btnPaddingL = document.getElementById("btnPaddingL").value;
+		document.getElementById("btn").style.paddingLeft = parseInt(btnPaddingL) + "px";
+
+		initBtnFunction();
+	}
+
+	// btn padding: right
+	function btnPaddingRight(){
+		btnPaddingR = document.getElementById("btnPaddingR").value;
+		document.getElementById("btn").style.paddingRight = parseInt(btnPaddingR) + "px";
+
+		initBtnFunction();
+	}
+
+	// btn padding: bottom
+	function btnPaddingBottom(){
+		btnPaddingB = document.getElementById("btnPaddingB").value;
+		document.getElementById("btn").style.paddingBottom = parseInt(btnPaddingB) + "px";
+
+		initBtnFunction();
+	}
+
+	// btn margin: top
+	function btnMarginTop(){
+		btnMarginT = document.getElementById("btnMarginT").value;
+		document.getElementById("btn").style.marginTop = parseInt(btnMarginT) + "px";
+
+		initBtnFunction();
+	}
+
+	// btn margin: left
+	function btnMarginLeft(){
+		btnMarginL = document.getElementById("btnMarginL").value;
+		document.getElementById("btn").style.marginLeft = parseInt(btnMarginL) + "px";
+
+		initBtnFunction();
+	}
+
+	// btn margin: right
+	function btnMarginRight(){
+		btnMarginR = document.getElementById("btnMarginR").value;
+		document.getElementById("btn").style.marginRight = parseInt(btnMarginR) + "px";
+
+		initBtnFunction();
+	}
+
+	// btn margin: bottom
+	function btnMarginBottom(){
+		btnMarginB = document.getElementById("btnMarginB").value;
+		document.getElementById("btn").style.marginBottom = parseInt(btnMarginB) + "px";
+
+		initBtnFunction();
+	}
+
+	// btn border-radius
+	function btnBorderRadiusXY(){
+		btnBorderRadiusX1 = document.getElementById("btnBorderRadiusX1").value;
+		btnBorderRadiusY1 = document.getElementById("btnBorderRadiusY1").value;
+		btnBorderRadiusX2 = document.getElementById("btnBorderRadiusX2").value;
+		btnBorderRadiusY2 = document.getElementById("btnBorderRadiusY2").value;
+
+		document.getElementById("btn").style.borderRadius = parseInt(btnBorderRadiusX1) + "px" + " " + parseInt(btnBorderRadiusY1) + "px" + " " + parseInt(btnBorderRadiusX2) + "px" + " " + parseInt(btnBorderRadiusY2) + "px";
+
+		initBtnFunction();
+	}
+
+	// btn box-shadow
+	function btnBoxShadow(){
+		btnBoxShadowT = document.getElementById("btnBoxShadowT").value;
+		btnBoxShadowL = document.getElementById("btnBoxShadowL").value;
+		btnBoxShadowR = document.getElementById("btnBoxShadowR").value;
+		btnBoxShadowB = document.getElementById("btnBoxShadowB").value;
+
+		// get color:
+		btnBoxShadowColor = document.getElementById("btnBoxShadowColor").value;
+
+		// set box-shadow:
+		document.getElementById("btn").style.boxShadow = parseInt(btnBoxShadowT) + "px" + " " + parseInt(btnBoxShadowL) + "px" + " " + parseInt(btnBoxShadowR) + "px" + " " + parseInt(btnBoxShadowB) + "px" + " " + btnBoxShadowColor;
+
+		initBtnFunction();
+	}
+
+	// btn font-style: normal
+	function btnFontStyleNormal(){
+		btnFontStyleSituation = "normal";
+		document.getElementById("btn").style.fontStyle = "normal";
+
+		initBtnFunction();
+	}
+
+	// btn font-style: italic
+	function btnFontStyleItalic(){
+		btnFontStyleSituation = "italic";
+		document.getElementById("btn").style.fontStyle = "italic";
+
+		initBtnFunction();
+	}
+
+	// btn font-style: oblique
+	function btnFontStyleOblique(){
+		btnFontStyleSituation = "oblique";
+		document.getElementById("btn").style.fontStyle = "oblique";
+
+		initBtnFunction();
+	}
+
+	// btn font-weight: normal
+	function btnFontWeightNormal(){
+		btnFontWeightSituation = "normal";
+		document.getElementById("btn").style.fontWeight = "normal";
+
+		initBtnFunction();
+	}
+
+	// btn font-weight: lighter
+	function btnFontWeightLighter(){
+		btnFontWeightSituation = "lighter";
+		document.getElementById("btn").style.fontWeight = "lighter";
+
+		initBtnFunction();
+	}
+
+	// btn font-weight: bold
+	function btnFontWeightBold(){
+		btnFontWeightSituation = "bold";
+		document.getElementById("btn").style.fontWeight = "bold";
+
+		initBtnFunction();
+	}
+
+	// btn font-weight: bolder
+	function btnFontWeightBolder(){
+		btnFontWeightSituation = "bolder";
+		document.getElementById("btn").style.fontWeight = "bolder";
+
+		initBtnFunction();
+	}
+
+</script>
+<!-- ********************************************************js for label*********************************************************************** -->
+<script type="text/javascript">
+	var labelFontSize;
+	var labelColor;
+	var labelBackgroundColor;
+	var labelFontStyle = "normal";
+	var labelAlign = "left";
+	var labelFontWeight = "normal";
+	var labelLetterSpacing;
+	var labelWordSpacing;
+	var labelTextIndent;
+	var labelTextDecoration = "none";
+	var labelWhiteSpace = "normal";
+	var labelTextShadow1;
+	var labelTextShadow2;
+	var labelTextShadow3;
+	var labelTextShadowColor;
+
+	function initLabelFunction(){
+		labelFontSize = document.getElementById("labelFontSize").value;
+		labelColor = document.getElementById("labelColor").value;
+		labelBackgroundColor = document.getElementById("labelBackgroundColor").value;
+		// labelFontStyle
+		// labelAlign
+		// labelFontWeight
+		labelLetterSpacing = document.getElementById("labelLetterSpacing").value;
+		labelWordSpacing = document.getElementById("labelWordSpacing").value;
+		labelTextIndent = document.getElementById("labelTextIndent").value;
+		// labelTextDecoration
+		// labelWhiteSpace
+
+		var labelInitParams1 = "{\n" + "font-size: " + labelFontSize + "px;\n" + "color: " + labelColor + ";\n" + "background-color: " + labelBackgroundColor + ";\n";
+		var labelInitParams2 = "font-style: " + labelFontStyle + ";\n" + "text-align: " + labelAlign + ";\n" + "font-weight: " + labelFontWeight + ";\n";
+		var labelInitParams3 = "letter-spacing: " + labelLetterSpacing + "px;\n" + "word-spacing: " + labelWordSpacing + "px;\n" + "text-indent: " + labelTextIndent + "cm;\n";
+		var labelInitParams4 = "text-decoration: " + labelTextDecoration + ";\n" + "white-space: " + labelWhiteSpace + ";\n}";
+
+		var labelInitParams = labelInitParams1 + labelInitParams2 + labelInitParams3 + labelInitParams4;
+		document.getElementById("codeLabelArea").value = labelInitParams;
+
+	}
+
+	function giveLabelName(){
+		var labelName = document.getElementById("labelName").value;
+		document.getElementById("label").innerHTML = labelName;
+
+		initLabelFunction();
+	}
+
+	function giveLabelFontSize(){
+		labelFontSize = document.getElementById("labelFontSize").value;
+		document.getElementById("label").style.fontSize = parseInt(labelFontSize) + "px";
+
+		initLabelFunction();
+	}
+
+	function giveLabelColor(){
+		labelColor = document.getElementById("labelColor").value;
+		document.getElementById("label").style.color = labelColor;
+
+		initLabelFunction();
+	}
+
+	function giveLabelBackgroundColor(){
+		labelBackgroundColor = document.getElementById("labelBackgroundColor").value;
+		document.getElementById("label").style.backgroundColor = labelBackgroundColor;
+
+		initLabelFunction();
+	}
+
+	function giveLabelFontStyleNormal(){
+		labelFontStyle = "normal";
+		document.getElementById("label").style.fontStyle = "normal";
+
+		initLabelFunction();
+	}
+
+	function giveLabelFontStyleItalic(){
+		labelFontStyle = "italic";
+		document.getElementById("label").style.fontStyle = "italic";
+
+		initLabelFunction();
+	}
+
+	function giveLabelFontStyleOblique(){
+		labelFontStyle = "oblique";
+		document.getElementById("label").style.fontStyle = "oblique";
+
+		initLabelFunction();
+	}
+
+	function giveLabelAlignLeft(){
+		labelAlign = "left";
+		document.getElementById("label").style.textAlign = "left";
+
+		initLabelFunction();
+	}
+
+	function giveLabelAlignCenter(){
+		labelAlign = "center";
+		document.getElementById("label").style.textAlign = "center";
+
+		initLabelFunction();
+	}
+
+	function giveLabelAlignRight(){
+		labelAlign = "right";
+		document.getElementById("label").style.textAlign = "right";
+
+		initLabelFunction();
+	}
+
+	function giveLabelFontWeightNormal(){
+		labelFontWeight = "normal";
+		document.getElementById("label").style.fontWeight = "normal";
+
+		initLabelFunction();
+	}
+
+	function giveLabelFontWeightLighter(){
+		labelFontWeight = "lighter";
+		document.getElementById("label").style.fontWeight = "lighter";
+
+		initLabelFunction();
+	}
+
+	function giveLabelFontWeightBold(){
+		labelFontWeight = "bold";
+		document.getElementById("label").style.fontWeight = "bold";
+
+		initLabelFunction();
+	}
+
+	function giveLabelFontWeightBolder(){
+		labelFontWeight = "bolder";
+		document.getElementById("label").style.fontWeight = "bolder";
+
+		initLabelFunction();
+	}
+
+	function giveLabelLetterSpacing(){
+		labelLetterSpacing = document.getElementById("labelLetterSpacing").value;
+		document.getElementById("label").style.letterSpacing = parseInt(labelLetterSpacing) + "px";
+
+		initLabelFunction();
+	}
+
+	function giveLabelWordSpacing(){
+		labelWordSpacing = document.getElementById("labelWordSpacing").value;
+		document.getElementById("label").style.wordSpacing = parseInt(labelWordSpacing) + "px";
+
+		initLabelFunction();
+	}
+
+	function giveLabelTextIndent(){
+		labelTextIndent = document.getElementById("labelTextIndent").value;
+		document.getElementById("label").style.textIndent = parseInt(labelTextIndent) + "cm";
+
+		initLabelFunction();
+	}
+
+	function giveLabelTextDecorationNone(){
+		labelTextDecoration = "none";
+		document.getElementById("label").style.textDecoration = "none";
+
+		initLabelFunction();
+	}
+
+	function giveLabelTextDecorationUnderline(){
+		labelTextDecoration = "underline";
+		document.getElementById("label").style.textDecoration = "underline";
+
+		initLabelFunction();
+	}
+
+	function giveLabelTextDecorationLineThrough(){
+		labelTextDecoration = "line-through";
+		document.getElementById("label").style.textDecoration = "line-through";
+
+		initLabelFunction();
+	}
+
+	function giveLabelTextDecorationOverline(){
+		labelTextDecoration = "overline";
+		document.getElementById("label").style.textDecoration = "overline";
+
+		initLabelFunction();
+	}
+
+	function giveLabelTextDecorationBlink(){
+		labelTextDecoration = "blink";
+		document.getElementById("label").style.textDecoration = "blink";
+
+		initLabelFunction();
+	}
+
+	function giveLabelWhiteSpaceNormal(){
+		labelWhiteSpace = "normal";
+		document.getElementById("label").style.whiteSpace = "normal";
+
+		initLabelFunction();
+	}
+
+	function giveLabelWhiteSpacePre(){
+		labelWhiteSpace = "pre";
+		document.getElementById("label").style.whiteSpace = "pre";
+
+		initLabelFunction();
+	}
+
+	function giveLabelWhiteSpaceNowrap(){
+		labelWhiteSpace = "nowrap";
+		document.getElementById("label").style.whiteSpace = "nowrap";
+
+		initLabelFunction();
+	}
+
+</script>
+</head>
+<body style="font-family: verdana, sans-serif; font-size:12px; background-color: #D8D8D8;" onload="initFunction()">
+<header>
+<div>
+<!-- main header -->
+<table>
+<tr>
+<td style="font-size: 48px; font-family: Georgia; color: white; background-color: orange">CSS Generator</td>
+<td style="font-size: 48px; color: orange">by OZTAS</td>
+</table>
+</div>
+</header>
+<div class="main">
+<!-- *********************************************************color header******************************************************************* -->
+<div>
+<table>
+<tr>
+<td style="font-size: 20px; color: white; background-color: orange">color:</td>
+</tr>
+</table>
+</div>
+<!-- **********************************************************color table******************************************************************* -->
+<div>
+<table>
+<tr>
+<td id="colorTD" style="text-align: center; border: 1px; border-color: black; border-style: dashed; width: 400px; height: 60px; background-color: rgb(128, 128, 128)">COLOR</td>
+</tr>
+</table>
+</div>
+<!-- **********************************************************RGB color*************************************************************** -->
+<div>
+<table>
+<tr>
+<td><label>R:</label></td>
+<td><input type="range" id="labelRColor" min="0" max="255" style="width: 300px;" value="128" onmousemove="colorLabel()"></td>
+<td><label id="colorR">128</label></td>
+</tr>
+<tr>
+<td><label>G:</label></td>
+<td><input type="range" id="labelGColor" min="0" max="255" style="width: 300px;" value="128" onmousemove="colorLabel()"></td>
+<td><label id="colorG">128</label></td>
+</tr>
+<tr>
+<td><label>B:</label></td>
+<td><input type="range" id="labelBColor" min="0" max="255" style="width: 300px;" value="128" onmousemove="colorLabel()"></td>
+<td><label id="colorB">128</label></td>
+</tr>
+</table>
+</div>
+<!-- ********************************************************* text label *************************************************** -->
+<div>
+<table>
+<tr><p>
+<td style="font-size: 20px; color: white; background-color: orange">form field:</td></p>
+</tr>
+</table>
+</div>
+<div>
+</div>
+<!-- ********************************************************* text ********************************************************* -->
+<div>
+<table>
+<tr>
+<td><input type="text" placeholder="input text here!" style="width: 200px; height: 25px; border-style: ridge" id="text" /></td>
+</tr>
+</table>
+</div>
+<!-- *********************************************font-size********************************************************* -->
+<details>
+<summary>font-size:</summary>
+<div>
+<table>
+<tr>
+<td><input type="text" style="width: 50px; text-align: right;" value="14" id="fontSizeUp" onkeyup="textFontSize()"></td>
+<td><label style="font-size:12px">px</label></td>
+</tr>
+</table>
+</div>
+</details>
+<!-- ***********************************************colors********************************************************** -->
+<details>
+<summary>color and background-color:</summary>
+<div>
+<table>
+<tr>
+<td><input type="color" id="textColor" onchange="colorText()" class="txt"/></td>
+<td><input type="color" id="textBackgroundColor" value="#FFFFFF" class="txt" onchange="colorTextBackGround()"/></td>
+</tr>
+</table>
+</div>
+</details>
+<!-- ***********************************************text-align********************************************************** -->
+<details>
+<summary>text-align:</summary>
+<div>
+<table>
+<tr>
+<td><label><input type="radio" name="textRadioAlign" onclick="textAlignLeft()" checked/>left</label></td>
+<td><label><input type="radio" name="textRadioAlign" onclick="textAlignCenter()" />center</label></td>
+<td><label><input type="radio" name="textRadioAlign" onclick="textAlignRight()" />right</label></td>
+</tr>
+</table>
+</div>
+</details>
+<details>
+<summary>text-transform:</summary>
+<div>
+<table>
+<tr>
+<!-- ***********************************************text-transform********************************************************** -->
+<td><label><input type="radio" name="radioTransform" onclick="textTransformNone()" checked/>none</label></td>
+<td><label><input type="radio" name="radioTransform" onclick="textTransformCapitalize()"/>capitalize</label></td>
+<td><label><input type="radio" name="radioTransform" onclick="textTransformUppercase()"/>uppercase</label></td>
+<td><label><input type="radio" name="radioTransform" onclick="textTransformLowercase()"/>lowercase</label></td>
+</tr>
+</table>
+</div>
+</details>
+<!-- ***********************************************border size & border color********************************************************** -->
+<details>
+<summary>border & border-color:</summary>
+<div>
+<table>
+<tr>
+<td><input type="text" value="1" style="width: 50px; text-align: right;" id="textBorderSize" onkeyup="textBorder()"></td>
+<td><label style="font-size:12px">px</label></td>
+<td><input type="color" id="textBorderCol" class="txt" onchange="textBorderColor()"></td>
+</tr>
+</table>
+</div>
+</details>
+<!-- ***********************************************border-style********************************************************** -->
+<details>
+<summary>border-style:</summary>
+<div>
+<table>
+<tr>
+<!--<td style="width: 150px"><label><input type="radio" name="radioBorderStyle" onclick="textBorderStyleDefault()" />default</label></td>-->
+<td><label><input type="radio" name="radioBorderStyle" onclick="textBorderStyleNone()" />none</label></td>
+<td><label><input type="radio" name="radioBorderStyle" onclick="textBorderStyleHidden()" />hidden</label></td>
+<td><label><input type="radio" name="radioBorderStyle" onclick="textBorderStyleDotted()" />dotted</label></td>
+<td><label><input type="radio" name="radioBorderStyle" onclick="textBorderStyleDashed()" />dashed</label></td>
+<td><label><input type="radio" name="radioBorderStyle" onclick="textBorderStyleSolid()" />solid</label></td>
+<td><label><input type="radio" name="radioBorderStyle"  onclick="textBorderStyleDouble()" />double</label></td>
+<td><label><input type="radio" name="radioBorderStyle"  onclick="textBorderStyleGroove()" />groove</label></td>
+<td><label><input type="radio" name="radioBorderStyle"  onclick="textBorderStyleRidge()" checked/>ridge</label></td>
+<td><label><input type="radio" name="radioBorderStyle"  onclick="textBorderStyleInset()" />inset</label></td>
+<td><label><input type="radio" name="radioBorderStyle"  onclick="textBorderStyleOutset()" />outset</label></td>
+</tr>
+</table>
+</div>
+</details>
+<!-- ***********************************************width & height********************************************************** -->
+<details>
+<summary>width & height:</summary>
+<div>
+<table>
+<tr>
+<td><label>W:</label></td>
+<td><input type="range" id="textWidth" min="0" max="400" style="width: 300px;" onmousemove="textWidth()"></td>
+<td><label id="textW">200 px</label></td>
+</tr>
+<tr>
+<td><label>H:</label></td>
+<td><input type="range" id="textHeight" min="0" max="50" style="width: 300px;" onmousemove="textHeight()"></td>
+<td><label id="textH">25 px</label></td>
+</tr>
+</table>
+</div>
+</details>
+<!-- ***********************************************padding********************************************************** -->
+<details>
+<summary>padding:</summary>
+<div>
+<table>
+<tr>
+<td><label style="font-size: 12px">top:</label>
+<input type="text" value="0" style="width: 50px; text-align: right;" id="textPaddingT" onkeyup="textPaddingTop()">
+<label style="font-size: 12px">px,&nbsp;</label>
+</td>
+<td><label style="font-size: 12px">left:</label>
+<input type="text" value="0" style="width: 50px; text-align: right;" id="textPaddingL" onkeyup="textPaddingLeft()">
+<label style="font-size: 12px">px,&nbsp;</label>
+</td>
+<td><label style="font-size: 12px">Right:</label>
+<input type="text" value="0" style="width: 50px; text-align: right;" id="textPaddingR" onkeyup="textPaddingRight()">
+<label style="font-size: 12px">px,&nbsp;</label>
+</td>
+<td><label style="font-size: 12px">Bottom:</label>
+<input type="text" value="0" style="width: 50px; text-align: right;" id="textPaddingB" onkeyup="textPaddingBottom()">
+<label style="font-size: 12px">px</label>
+</td>
+</tr>
+</table>
+</div>
+</details>
+<!-- ***********************************************margin********************************************************** -->
+<details>
+<summary>margin:</summary>
+<div>
+<table>
+<tr>
+<td><label style="font-size: 12px">top:</label>
+<input type="text" value="0" style="width: 50px; text-align: right;" id="textMarginT" onkeyup="textMarginTop()">
+<label style="font-size: 12px">px,&nbsp;</label>
+</td>
+<td><label style="font-size: 12px">left:</label>
+<input type="text" value="0" style="width: 50px; text-align: right;" id="textMarginL" onkeyup="textMarginLeft()">
+<label style="font-size: 12px">px,&nbsp;</label>
+</td>
+<td><label style="font-size: 12px">Right:</label>
+<input type="text" value="0" style="width: 50px; text-align: right;" id="textMarginR" onkeyup="textMarginRight()">
+<label style="font-size: 12px">px,&nbsp;</label>
+</td>
+<td><label style="font-size: 12px">Bottom:</label>
+<input type="text" value="0" style="width: 50px; text-align: right;" id="textMarginB" onkeyup="textMarginBottom()">
+<label style="font-size: 12px">px</label>
+</td>
+</tr>
+</table>
+</div>
+</details>
+<!-- ***********************************************border-radius********************************************************** -->
+<details>
+<summary>border-radius:</summary>
+<div>
+<table>
+<tr>
+<td><label style="font-size: 12px">x1: &nbsp;</label><input type="text" value="0" style="width: 50px; text-align: right;" id="borderRadiusX1" onkeyup="borderRadiusXY()"><label style="font-size:12px">&nbsp; px,</label></td>
+<td><label style="font-size: 12px">y1: &nbsp;</label><input type="text" value="0" style="width: 50px; text-align: right;" id="borderRadiusY1" onkeyup="borderRadiusXY()"><label style="font-size:12px">&nbsp; px,</label></td>
+<td><label style="font-size: 12px">x2: &nbsp;</label><input type="text" value="0" style="width: 50px; text-align: right;" id="borderRadiusX2" onkeyup="borderRadiusXY()"><label style="font-size:12px">&nbsp; px,</label></td>
+<td><label style="font-size: 12px">y2: &nbsp;</label><input type="text" value="0" style="width: 50px; text-align: right;" id="borderRadiusY2" onkeyup="borderRadiusXY()"><label style="font-size:12px">&nbsp; px</label></td>
+</tr>
+</table>
+</div>
+</details>
+<!-- ***********************************************box-shadow*********************************************************** -->
+<details>
+<summary>box-shadow:</summary>
+<div>
+<table>
+<tr>
+<td><label style="font-size: 12px">x:&nbsp;&nbsp;&nbsp;</label>
+<input type="text" value="0" style="width: 50px; text-align: right;" id="textBoxShadowT" onkeyup="textBoxShadow()">
+<label style="font-size: 12px">px,&nbsp;</label>
+</td>
+<td><label style="font-size: 12px">y:&nbsp;&nbsp;&nbsp;</label>
+<input type="text" value="0" style="width: 50px; text-align: right;" id="textBoxShadowL" onkeyup="textBoxShadow()">
+<label style="font-size: 12px">px,&nbsp;</label>
+</td>
+<td><label style="font-size: 12px">z:&nbsp;&nbsp;&nbsp;</label>
+<input type="text" value="0" style="width: 50px; text-align: right;" id="textBoxShadowR" onkeyup="textBoxShadow()">
+<label style="font-size: 12px">px,&nbsp;</label>
+</td>
+<td><label style="font-size: 12px">v:&nbsp;&nbsp;&nbsp;</label>
+<input type="text" value="0" style="width: 50px; text-align: right;" id="textBoxShadowB" onkeyup="textBoxShadow()">
+<label style="font-size: 12px">px</label>
+</td>
+<td>&nbsp;<input type="color" class="txt" id="textBoxShadowColor" onchange="textBoxShadow()"></td>
+</tr>
+</table>
+</div>
+</details>
+<!-- ***********************************************CSS CODE Result*********************************************************** -->
+<details>
+<summary>CSS code for textFields</summary>
+<div>
+<table>
+<tr>
+<td>
+<textarea rows="12" cols="60" id="codeArea">style by OZTAS</textarea>
+</td>
+</tr>
+</table>
+</div>
+</details>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div>
+<table>
+<tr><br>
+<td style="font-size: 20px; color: white; background-color: orange">button:</td>
+</tr>
+</table>
+</div>
+<!-- *********************************************************btn************************************************************ -->
+<div>
+<table>
+<tr>
+<td><input type="button" value="Click" style="width: 200px; height: 25px; text-align: center;" id="btn"></td>
+</tr>
+<tr>
+<td>
+<input type="text" style="text-align: center; width: 180px;" placeholder="input a button's name!" id="btnName" onkeyup="giveBtnName()">
+</td>
+</tr>
+</table>
+</div>
+<!-- ********************************************************btn: font-size**************************************************** -->
+<details>
+<summary>font-size:</summary>
+<div>
+<table>
+<tr>
+<td><input type="text" style="width: 50px; text-align: right;" value="14" id="btnFontSizeUp" onkeyup="btnFontSize()">
+</td>
+<td><label style="font-size:12px">px</label></td>
+</tr>
+</table>
+</div>
+</details>
+<!-- ***********************************************btn: font-style********************************************************** -->
+<details>
+<summary>font-style:</summary>
+<div>
+<table>
+<tr>
+<td><label><input type="radio" name="btnFontStyle" onclick="btnFontStyleNormal()" checked/>normal</label></td>
+<td><label><input type="radio" name="btnFontStyle" onclick="btnFontStyleItalic()" />italic</label></td>
+<td><label><input type="radio" name="btnFontStyle" onclick="btnFontStyleOblique()" />oblique</label></td>
+</tr>
+</table>
+</div>
+</details>
+<!-- ***********************************************btn: font-weight********************************************************** -->
+<details>
+<summary>font-weight:</summary>
+<div>
+<table>
+<tr>
+<td><label><input type="radio" name="btnFontWeight" onclick="btnFontWeightNormal()" checked/>normal</label></td>
+<td><label><input type="radio" name="btnFontWeight" onclick="btnFontWeightLighter()" />lighter</label></td>
+<td><label><input type="radio" name="btnFontWeight" onclick="btnFontWeightBold()" />bold</label></td>
+<td><label><input type="radio" name="btnFontWeight" onclick="btnFontWeightBolder()" />bolder</label></td>
+</tr>
+</table>
+</div>
+</details>
+<!-- *******************************************************btn: colors******************************************************* -->
+<details>
+<summary>color & background-color:</summary>
+<div>
+<table>
+<tr>
+<td><input type="color" class="txt" id="btnColor" onchange="colorBtn()"/>&nbsp;&nbsp;&nbsp;</td>
+<td><input type="color" class="txt" id="btnBackgroundColor" value="#FFFFFF" onchange="colorBtnBackGround()"/></td>
+</tr>
+</table>
+</div>
+</details>
+<!-- ***********************************************btn: text-align********************************************************** -->
+<details>
+<summary>text-align:</summary>
+<div>
+<table>
+<tr>
+<td><label><input type="radio" name="btnRadioAlign" onclick="btnAlignLeft()" />left</label></td>
+<td><label><input type="radio" name="btnRadioAlign" onclick="btnAlignCenter()" checked/>center</label></td>
+<td><label><input type="radio" name="btnRadioAlign" onclick="btnAlignRight()" />right</label></td>
+</tr>
+</table>
+</div>
+</details>
+<!-- ***********************************************btn: border size & border color********************************************************** -->
+<details>
+<summary>border & border-color:</summary>
+<div>
+<table>
+<tr>
+<td><input type="text" value="1" style="width: 50px; text-align: right;" id="btnBorderSize" onkeyup="btnBorder()"></td>
+<td><label style="font-size:12px">px</label></td>
+<td><input type="color" class="txt" id="btnBorderCol" onchange="btnBorderColor()"></td>
+</tr>
+</table>
+</div>
+</details>
+<!-- ***********************************************btn: border-style********************************************************** -->
+<details>
+<summary>border-style:</summary>
+<div>
+<table>
+<tr>
+<td><label><input type="radio" name="radioBorderStyle" onclick="btnBorderStyleNone()" />none</label></td>
+<td><label><input type="radio" name="radioBorderStyle" onclick="btnBorderStyleHidden()" />hidden</label></td>
+<td><label><input type="radio" name="radioBorderStyle" onclick="btnBorderStyleDotted()" />dotted</label></td>
+<td><label><input type="radio" name="radioBorderStyle" onclick="btnBorderStyleDashed()" />dashed</label></td>
+<td><label><input type="radio" name="radioBorderStyle" onclick="btnBorderStyleSolid()" />solid</label></td>
+<td><label><input type="radio" name="radioBorderStyle"  onclick="btnBorderStyleDouble()" />double</label></td>
+<td><label><input type="radio" name="radioBorderStyle"  onclick="btnBorderStyleGroove()" />groove</label></td>
+<td><label><input type="radio" name="radioBorderStyle"  onclick="btnBorderStyleRidge()" checked/>ridge</label></td>
+<td><label><input type="radio" name="radioBorderStyle"  onclick="btnBorderStyleInset()" />inset</label></td>
+<td><label><input type="radio" name="radioBorderStyle"  onclick="btnBorderStyleOutset()" />outset</label></td>
+</tr>
+</table>
+</div>
+</details>
+<!-- *******************************************************button: cursor****************************************************** -->
+<details>
+<summary>cursor:</summary>
+<div>
+<table>
+<tr>
+<td><label><input type="radio" name="btnCursor" onclick="btnCursorAuto()" checked>auto</label></td>
+<td><label><input type="radio" name="btnCursor" onclick="btnCursorCrosshair()">crosshair</label></td>
+<td><label><input type="radio" name="btnCursor" onclick="btnCursorDefault()">default</label></td>
+<td><label><input type="radio" name="btnCursor" onclick="btnCursorPointer()">pointer</label></td>
+<td><label><input type="radio" name="btnCursor" onclick="btnCursorMove()">move</label></td>
+<td><label><input type="radio" name="btnCursor" onclick="btnCursorEResize()">e-resize</label></td>
+<td><label><input type="radio" name="btnCursor" onclick="btnCursorNEResize()">ne-resize</label></td>
+<td><label><input type="radio" name="btnCursor" onclick="btnCursorNWResize()">nw-resize</label></td>
+</tr>
+<tr>
+<td><label><input type="radio" name="btnCursor" onclick="btnCursorNResize()">n-resize</label></td>
+<td><label><input type="radio" name="btnCursor" onclick="btnCursorSEResize()">se-resize</label></td>
+<td><label><input type="radio" name="btnCursor" onclick="btnCursorSWResize()">sw-resize</label></td>
+<td><label><input type="radio" name="btnCursor" onclick="btnCursorSResize()">s-resize</label></td>
+<td><label><input type="radio" name="btnCursor" onclick="btnCursorWResize()">w-resize</label></td>
+<td><label><input type="radio" name="btnCursor" onclick="btnCursorText()">text</label></td>
+<td><label><input type="radio" name="btnCursor" onclick="btnCursorWait()">wait</label></td>
+<td><label><input type="radio" name="btnCursor" onclick="btnCursorHelp()">help</label></td>
+</tr>
+</table>
+</div>
+</details>
+<!-- *******************************************************button: width & height********************************************** -->
+<details>
+<summary>width and height:</summary>
+<div>
+<table>
+<tr>
+<td><label>W:</label></td>
+<td><input type="range" id="btnWidth" min="0" max="400" style="width: 300px;" onmousemove="giveBtnWidth()"></td>
+<td><label id="btnW">200px</label></td>
+</tr>
+<tr>
+<td><label>H:</label></td>
+<td><input type="range" id="btnHeight" min="0" max="50" style="width: 300px;" onmousemove="giveBtnHeight()"></td>
+<td><label id="btnH">25px</label></td>
+</tr>
+</table>
+</div>
+</details>
+<!-- ***********************************************btn: padding********************************************************** -->
+<details>
+<summary>padding:</summary>
+<div>
+<table>
+<tr>
+<td><label style="font-size: 12px">top:</label>
+<input type="text" value="0" style="width: 50px; text-align: right;" id="btnPaddingT" onkeyup="btnPaddingTop()">
+<label style="font-size: 12px">px,&nbsp;</label>
+</td>
+<td><label style="font-size: 12px">left:</label>
+<input type="text" value="0" style="width: 50px; text-align: right;" id="btnPaddingL" onkeyup="btnPaddingLeft()">
+<label style="font-size: 12px">px,&nbsp;</label>
+</td>
+<td><label style="font-size: 12px">Right:</label>
+<input type="text" value="0" style="width: 50px; text-align: right;" id="btnPaddingR" onkeyup="btnPaddingRight()">
+<label style="font-size: 12px">px,&nbsp;</label>
+</td>
+<td><label style="font-size: 12px">Bottom:</label>
+<input type="text" value="0" style="width: 50px; text-align: right;" id="btnPaddingB" onkeyup="btnPaddingBottom()">
+<label style="font-size: 12px">px</label>
+</td>
+</tr>
+</table>
+</div>
+</details>
+<!-- ***********************************************margin********************************************************** -->
+<details>
+<summary>margin:</summary>
+<div>
+<table>
+<tr>
+<td><label style="font-size: 12px">top:</label>
+<input type="text" value="0" style="width: 50px; text-align: right;" id="btnMarginT" onkeyup="btnMarginTop()">
+<label style="font-size: 12px">px,&nbsp;</label>
+</td>
+<td><label style="font-size: 12px">left:</label>
+<input type="text" value="0" style="width: 50px; text-align: right;" id="btnMarginL" onkeyup="btnMarginLeft()">
+<label style="font-size: 12px">px,&nbsp;</label>
+</td>
+<td><label style="font-size: 12px">Right:</label>
+<input type="text" value="0" style="width: 50px; text-align: right;" id="btnMarginR" onkeyup="btnMarginRight()">
+<label style="font-size: 12px">px,&nbsp;</label>
+</td>
+<td><label style="font-size: 12px">Bottom:</label>
+<input type="text" value="0" style="width: 50px; text-align: right;" id="btnMarginB" onkeyup="btnMarginBottom()">
+<label style="font-size: 12px">px</label>
+</td>
+</tr>
+</table>
+</div>
+</details>
+<!-- ***********************************************btn: border-radius********************************************************** -->
+<details>
+<summary>border-radius:</summary>
+<div>
+<table>
+<tr>
+<td><label style="font-size: 12px">x1: &nbsp;</label><input type="text" value="0" style="width: 50px; text-align: right;" id="btnBorderRadiusX1" onkeyup="btnBorderRadiusXY()"><label style="font-size:12px">&nbsp; px,</label></td>
+<td><label style="font-size: 12px">y1: &nbsp;</label><input type="text" value="0" style="width: 50px; text-align: right;" id="btnBorderRadiusY1" onkeyup="btnBorderRadiusXY()"><label style="font-size:12px">&nbsp; px,</label></td>
+<td><label style="font-size: 12px">x2: &nbsp;</label><input type="text" value="0" style="width: 50px; text-align: right;" id="btnBorderRadiusX2" onkeyup="btnBorderRadiusXY()"><label style="font-size:12px">&nbsp; px,</label></td>
+<td><label style="font-size: 12px">y2: &nbsp;</label><input type="text" value="0" style="width: 50px; text-align: right;" id="btnBorderRadiusY2" onkeyup="btnBorderRadiusXY()"><label style="font-size:12px">&nbsp; px</label></td>
+</tr>
+</table>
+</div>
+</details>
+<!-- ***********************************************box-shadow*********************************************************** -->
+<details>
+<summary>box-shadow:</summary>
+<div>
+<table>
+<tr>
+<td><label style="font-size: 12px">x:&nbsp;&nbsp;&nbsp;</label>
+<input type="text" value="0" style="width: 50px; text-align: right;" id="btnBoxShadowT" onkeyup="btnBoxShadow()">
+<label style="font-size: 12px">px,&nbsp;</label>
+</td>
+<td><label style="font-size: 12px">y:&nbsp;&nbsp;&nbsp;</label>
+<input type="text" value="0" style="width: 50px; text-align: right;" id="btnBoxShadowL" onkeyup="btnBoxShadow()">
+<label style="font-size: 12px">px,&nbsp;</label>
+</td>
+<td><label style="font-size: 12px">z:&nbsp;&nbsp;&nbsp;</label>
+<input type="text" value="0" style="width: 50px; text-align: right;" id="btnBoxShadowR" onkeyup="btnBoxShadow()">
+<label style="font-size: 12px">px,&nbsp;</label>
+</td>
+<td><label style="font-size: 12px">v:&nbsp;&nbsp;&nbsp;</label>
+<input type="text" value="0" style="width: 50px; text-align: right;" id="btnBoxShadowB" onkeyup="btnBoxShadow()">
+<label style="font-size: 12px">px</label>
+</td>
+<td>&nbsp;<input type="color" id="btnBoxShadowColor" onchange="btnBoxShadow()"></td>
+</tr>
+</table>
+</div>
+</details>
+<!-- ***********************************************CSS CODE Result for btn*********************************************************** -->
+<details>
+<summary>CSS Code for button:</summary>
+<div>
+<table>
+<tr>
+<td><textarea rows="12" cols="60" id="btnCodeArea">style by OZTAS</textarea></td>
+</tr>
+</table>
+</div>
+</details>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div>
+<table>
+<tr><br>
+<td style="font-size: 20px; color: white; background-color: orange">text:</td>
+</tr>
+</table>
+</div>
+<!-- *********************************************************label************************************************************ -->
+<div>
+<table>
+<tr>
+<td style="width: 400px; border: 1px; border-color: black; border-style: dashed">
+<p style="font-family: sans-serif; font-size: 14px" id="label">This is a text place!</p>
+</td
+</tr>
+<tr>
+<td>
+<input type="text" style="text-align: center; width: 180px;" placeholder="input a text name!" id="labelName" onkeyup="giveLabelName()">
+</td>
+</tr>
+</table>
+</div>
+<!-- *********************************************************label:font-size********************************************************* -->
+<details>
+<summary>font-size:</summary>
+<div>
+<table>
+<tr>
+<td><input type="text" style="width: 50px; text-align: right;" value="14" id="labelFontSize" onkeyup="giveLabelFontSize()"></td>
+<td><label style="font-size:12px">px</label></td>
+</tr>
+</table>
+</div>
+</details>
+<!-- *********************************************************label:color********************************************************* -->
+<details>
+<summary>color & background-color:</summary>
+<div>
+<table>
+<tr>
+<td><input type="color" class="txt" id="labelColor" onchange="giveLabelColor()"/>&nbsp;&nbsp;&nbsp;</td>
+<td><input type="color" class="txt" id="labelBackgroundColor" value="#FFFFFF" onchange="giveLabelBackgroundColor()"/></td>
+</tr>
+</table>
+</div>
+</details>
+<!-- ***********************************************label: font-style********************************************************** -->
+<details>
+<summary>font-style:</summary>
+<div>
+<table>
+<tr>
+<td><label><input type="radio" name="btnFontStyle" onclick="giveLabelFontStyleNormal()" checked/>normal</label></td>
+<td><label><input type="radio" name="btnFontStyle" onclick="giveLabelFontStyleItalic()" />italic</label></td>
+<td><label><input type="radio" name="btnFontStyle" onclick="giveLabelFontStyleOblique()" />oblique</label></td>
+</tr>
+</table>
+</div>
+</details>
+<!-- ***********************************************label: text-align********************************************************** -->
+<details>
+<summary>text-align:</summary>
+<div>
+<table>
+<tr>
+<td><label><input type="radio" name="textRadioAlign" onclick="giveLabelAlignLeft()" checked/>left</label></td>
+<td><label><input type="radio" name="textRadioAlign" onclick="giveLabelAlignCenter()" />center</label></td>
+<td><label><input type="radio" name="textRadioAlign" onclick="giveLabelAlignRight()" />right</label></td>
+</tr>
+</table>
+</div>
+</details>
+<!-- ***********************************************label: font:weight********************************************************** -->
+<details>
+<summary>font-weight:</summary>
+<div>
+<table>
+<tr>
+<td><label><input type="radio" name="btnFontWeight" onclick="giveLabelFontWeightNormal()" checked/>normal</label></td>
+<td><label><input type="radio" name="btnFontWeight" onclick="giveLabelFontWeightLighter()" />lighter</label></td>
+<td><label><input type="radio" name="btnFontWeight" onclick="giveLabelFontWeightBold()" />bold</label></td>
+<td><label><input type="radio" name="btnFontWeight" onclick="giveLabelFontWeightBolder()" />bolder</label></td>
+</tr>
+</table>
+</div>
+</details>
+<!-- ***********************************************label: letter-spacing********************************************************** -->
+<details>
+<summary>letter-spacing & word-spacing & text-indent:</summary>
+<div>
+<table>
+<tr>
+<td><input type="text" style="width: 50px; text-align: right;" value="0" id="labelLetterSpacing" onkeyup="giveLabelLetterSpacing()"></td>
+<td><label style="font-size:12px">px,</label>&nbsp;&nbsp;</td>
+<!-- ***********************************************label: word-spacing********************************************************** -->
+<td><input type="text" style="width: 50px; text-align: right;" value="0" id="labelWordSpacing" onkeyup="giveLabelWordSpacing()"></td>
+<td><label style="font-size:12px">px,</label>&nbsp;&nbsp;</td>
+<!-- ***********************************************label: text-indent********************************************************** -->
+<td><input type="text" style="width: 50px; text-align: right;" value="0" id="labelTextIndent" onkeyup="giveLabelTextIndent()"></td>
+<td><label style="font-size:12px">cm</label></td>
+</tr>
+</table>
+</div>
+</details>
+<!-- ***********************************************label: text-decoration********************************************************** -->
+<details>
+<summary>text-decoration:</summary>
+<div>
+<table>
+<tr>
+<td><label><input type="radio" name="labelTextDecoration" onclick="giveLabelTextDecorationNone()" checked/>none</label></td>
+<td><label><input type="radio" name="labelTextDecoration" onclick="giveLabelTextDecorationUnderline()" />undeline</label></td>
+<td><label><input type="radio" name="labelTextDecoration" onclick="giveLabelTextDecorationLineThrough()" />line-through</label></td>
+<td><label><input type="radio" name="labelTextDecoration" onclick="giveLabelTextDecorationOverline()" />overline</label></td>
+<td><label><input type="radio" name="labelTextDecoration" onclick="giveLabelTextDecorationBlink()" />blink</label></td>
+</tr>
+</table>
+</div>
+</details>
+<!-- ***********************************************label: white-space************************************************************** -->
+<details>
+<summary>white-space:</summary>
+<div>
+<table>
+<tr>
+<td><label><input type="radio" name="labelWhiteSpace" onclick="giveLabelWhiteSpaceNormal()" checked/>normal</label></td>
+<td><label><input type="radio" name="labelWhiteSpace" onclick="giveLabelWhiteSpacePre()" />pre</label></td>
+<td><label><input type="radio" name="labelWhiteSpace" onclick="giveLabelWhiteSpaceNowrap()" />nowrap</label></td>
+</tr>
+</table>
+</div>
+</details>
+<!-- ***********************************************label: coreArea************************************************************** -->
+<details>
+<summary>CSS Code for text:</summary>
+<div>
+<table>
+<tr>
+<td>
+<textarea rows="12" cols="60" id="codeLabelArea">style by OZTAS</textarea>
+</td>
+</tr>
+</table>
+</div>
+</details><br>
+</div>
+<!-- ***********************************************footer************************************************************** -->
+<div>
+<footer>
+Copyright (c) by oztas<br>
+</footer>
+</div>
+</body>
+</html>
